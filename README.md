@@ -22,7 +22,7 @@ Sort by :
 list will be ordered by date
 ```
 
-## It is used by me to make [this file]([C-language/programmes.md at master · Dinex-dev/C-language · GitHub](https://github.com/Dinex-dev/C-language/blob/master/programmes.md))
+## It is used by me to make [this file](https://github.com/Dinex-dev/C-language/blob/master/programmes.md)
 
 
 
