@@ -1,18 +1,21 @@
 #!/bin/bash
+# Get information from the user
 echo "Path To the Directory : "
 read path 
-echo "Name / Path of save file : "
+echo "Name of save file : "
 read file
 echo "Heading of the file : "
 read heading
+
+# function to read type of list 
 typeoffun(){
-echo "Type of list (order or bullet):"
+echo -e "Type of list :\n 1. Bulleted\n 2. Ordered"
 read listtype
-if [ $listtype == "bullet" ] || [ $listtype == "bulleted" ] || [ $listtype == "b" ]
+if [ $listtype == "bullet" ] || [ $listtype == "bulleted" ] || [ $listtype == "b" ] || [ $listtype == 1 ]
 then
   echo "list will be bulleted"
   listtype="b"
-elif [ $listtype == 'order' ] || [ $listtype == 'ordered' ] || [ $listtype == 'o' ]
+elif [ $listtype == 'order' ] || [ $listtype == 'ordered' ] || [ $listtype == 'o' ] || [ $listtype == 2 ]
 then
   echo -e "Sort by : \n 1. Date \n 2. Name \n 3. Size \n 4. Type \n 5. Permissions"
   read sortby
@@ -48,8 +51,12 @@ else
   exit
 fi
 }
+
+#calling function to read list
 typeoffun
-ls $sortby $path >> list.csv
+
+#saving names of files in .list.csv file
+ls $sortby $path >> .list.csv
 echo "# $heading " > $file
 declare -i x=1
 
@@ -68,6 +75,7 @@ do
     echo -e "\n" >> $file
     echo "\`\`\`" >> $file
     x=x+1
-done < list.csv
+done < .list.csv
 
-rm list.csv
+#removing .list.csv file
+rm .list.csv
