@@ -64,7 +64,7 @@ do
     fi
     echo -e "\n" >> $file
     echo "\`\`\` ${line##*.} " >> $file  
-    cat /home/dinex/Documents/VIPS/c/code/forgit/source_code/"$line" >> ./$file
+    cat "$path/$line" >> ./$file
     echo -e "\n" >> $file
     echo "\`\`\`" >> $file
     x=x+1
